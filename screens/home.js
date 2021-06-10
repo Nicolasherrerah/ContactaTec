@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import { Text, View, StyleSheet, StatusBar, Pressable } from 'react-native';
+import { Text, View, StyleSheet, StatusBar, Pressable, ScrollView } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ThemeContext } from '../context/ThemeContext'
 import { globalStylesDark } from '../styles/globalDark'
@@ -47,43 +47,44 @@ export default function Home({ navigation }) {
   const iconColor = context.theme.isLight ? '#000':  '#fff';
 
   return (
+    <ScrollView>
     <View style={theme.container}>
-      <StatusBar backgroundColor={statusColor}/>
       <View >
         <Header/>
-        {
-          POSTS.map((post) => (
-            <Pressable style={theme.postEntry} key={post.id} onPress={() => navigation.navigate('Post', {title: post.title, content: post.content, comments: post.comments} )}>
-              <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Text style={theme.postTitle}>
-                  {post.title}
-                </Text>
-                <Text style={theme.text}>
-                  {post.date}
-                </Text>
-              </View>
-              <Text style={theme.postText}>
-                {post.details} 
-              </Text>
-              <View style={{flexDirection: 'row', justifyContent:'space-between', margin: 3}}>
-                <Text style={theme.flair}>
-                    {post.type}
-                </Text>
-                <View style={{flexDirection: 'row'}}>
-                  <Ionicons color={iconColor} name='chatbox-outline' size={20} />
-                  <Text style={theme.commentCount}>
-                    {post.comments}
+          {
+            POSTS.map((post) => (
+              <Pressable style={theme.postEntry} key={post.id} onPress={() => navigation.navigate('Post', {title: post.title, content: post.content, comments: post.comments} )}>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                  <Text style={theme.postTitle}>
+                    {post.title}
+                  </Text>
+                  <Text style={theme.text}>
+                    {post.date}
                   </Text>
                 </View>
-              </View>
-            </Pressable>  
-          ))
-        }
-        <View style={{alignItems: 'flex-end', marginTop:20, marginRight: 5}}>
-          <Ionicons name="add-circle" size={50} color={iconColor}/>
-        </View>
+                <Text style={theme.postText}>
+                  {post.details} 
+                </Text>
+                <View style={{flexDirection: 'row', justifyContent:'space-between', margin: 3}}>
+                  <Text style={theme.flair}>
+                      {post.type}
+                  </Text>
+                  <View style={{flexDirection: 'row'}}>
+                    <Ionicons color={iconColor} name='chatbox-outline' size={20} />
+                    <Text style={theme.commentCount}>
+                      {post.comments}
+                    </Text>
+                  </View>
+                </View>
+              </Pressable>  
+            ))
+          }
+          <View style={{alignItems: 'flex-end', marginTop:20, marginRight: 5}}>
+            <Ionicons name="add-circle" size={50} color={iconColor}/>
+          </View>
 
       </View>
     </View>
+    </ScrollView>
   );
 }

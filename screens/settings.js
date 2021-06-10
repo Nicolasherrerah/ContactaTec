@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import * as WebBrowser from 'expo-web-browser';
-import { Text, StyleSheet, SafeAreaView, Pressable, SectionList, View } from 'react-native';
+import { Text, StyleSheet, SafeAreaView, Pressable, SectionList, View, ScrollView} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ThemeContext } from '../context/ThemeContext'
 import { globalStylesDark } from '../styles/globalDark'
@@ -54,14 +54,14 @@ export default function Settings({navigation}) {
             <Text style={theme.title}>{title}</Text>
           )}
           ListHeaderComponent={<Text style={theme.header}>Ajustes</Text>}
-        />
-        <Text style={theme.title}>
-          Personalizar
-        </Text>
-        <Pressable style={styles.item} onPress={context.toggleTheme}>
-          <Text style={theme.itemText}>Cambiar tema</Text>
-          <Ionicons name={icon.logo} color={icon.color} size={20} style={styles.logo}/>
-        </Pressable>
+          />
+          <Text style={theme.title}>
+            Personalizar
+          </Text>
+          <Pressable style={styles.item} onPress={context.toggleTheme}>
+            <Text style={theme.itemText}>Cambiar tema</Text>
+            <Ionicons name={icon.logo} color={icon.color} size={20} style={styles.logo}/>
+          </Pressable>
         <Text style={theme.copyright}>&copy; 2021 Tecnológico de Monterrey</Text>
       </View>
     </SafeAreaView>

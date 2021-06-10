@@ -14,8 +14,8 @@ export const globalStylesLight = StyleSheet.create({
     title: {
         fontSize: 18,
         color: "#000",
-        padding: 10,
-        marginTop: 10,
+        padding: 5,
+        marginTop: 5,
         fontFamily: 'NotoSansJP_700Bold',
         borderBottomWidth: 1,
         borderColor: "#a3a3a3", 
