@@ -1,21 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import ThemeContextProvider from './context/ThemeContext';
+import Main from './screens/main'
+import AppLoading from 'expo-app-loading';
+import {
+  useFonts,
+  NotoSansJP_100Thin,
+  NotoSansJP_300Light,
+  NotoSansJP_400Regular,
+  NotoSansJP_500Medium,
+  NotoSansJP_700Bold,
+  NotoSansJP_900Black,
+} from '@expo-google-fonts/noto-sans-jp';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+export default () => {
+  let [fontsLoaded] = useFonts({
+    NotoSansJP_100Thin,
+    NotoSansJP_300Light,
+    NotoSansJP_400Regular,
+    NotoSansJP_500Medium,
+    NotoSansJP_700Bold,
+    NotoSansJP_900Black,
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+  else{
+    return(
+      <ThemeContextProvider>
+        <Main/>
+      </ThemeContextProvider>
+    );
+  }  
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
