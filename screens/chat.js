@@ -24,7 +24,8 @@ export default function Chat() {
           <Ionicons name="happy-outline" size={20} color={iconColor}/>
         </Pressable>
         <TextInput placeholder='Escribe un mensaje' style={theme.chatInput} multiline={true} placeholderTextColor={placeholderColor}/>
-        <Pressable>
+        <Pressable style={{flexDirection: 'row'}}>
+          <Ionicons name="image" size={20} color={iconColor} style={{paddingRight: 5}}/>
           <Ionicons name="return-down-back-sharp" size={20} color={iconColor}/>
         </Pressable>
       </View>

@@ -14,8 +14,7 @@ export const globalStylesLight = StyleSheet.create({
     title: {
         fontSize: 18,
         color: "#000",
-        padding: 5,
-        marginTop: 5,
+        paddingLeft: 5,
         fontFamily: 'NotoSansJP_700Bold',
         borderBottomWidth: 1,
         borderColor: "#a3a3a3", 
@@ -30,15 +29,14 @@ export const globalStylesLight = StyleSheet.create({
         color: 'black',
         fontSize: 11,
         fontFamily: 'NotoSansJP_900Black',
-        padding: 10,
+        paddingTop: 4,
         justifyContent: 'center',
         alignSelf: 'center',
     },
     header: {
         fontSize: 32,
-        paddingTop: 20,
-        paddingBottom: 5,
-        paddingLeft: 5,
+        paddingTop: 10,
+        paddingLeft: 10,
         borderBottomWidth: 2,
         borderColor: '#4285f4',
         color: 'black',
@@ -53,7 +51,7 @@ export const globalStylesLight = StyleSheet.create({
     },
     postEntry: {
         color: "#000",
-        padding: 10,
+        padding: 5,
         marginTop: 10,
         borderWidth: 1.5,
         borderColor: "#cccccc", 
@@ -111,9 +109,10 @@ export const globalStylesLight = StyleSheet.create({
         fontSize: 18,
         color: "#000",
         padding: 10,
-        marginTop: 10,
+        marginTop: 5,
         fontFamily: 'NotoSansJP_700Bold',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        textAlign: 'center'
     },
     buttonDisclaimer: {
         color: 'grey',
@@ -136,11 +135,14 @@ export const globalStylesLight = StyleSheet.create({
         borderRadius: 20,
         borderColor: 'grey',
         margin: 10,
-        padding: 10,
+        padding: 8,
+        alignItems: 'center',
+
     },
     chatInput: {
-        width: '80%',
+        width: '70%',
         fontFamily: 'NotoSansJP_400Regular',
+        paddingLeft: 5
 
     },
     chatSpace: {
@@ -164,5 +166,34 @@ export const globalStylesLight = StyleSheet.create({
         fontFamily: 'NotoSansJP_700Bold',
         padding: 5,
         marginVertical: 10 
+    },
+    modal:{
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: 35,
+        shadowColor: "#000",
+        shadowOffset: {
+        width: 0,
+        height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
+    },
+    closeBtn: {
+        fontFamily: 'NotoSansJP_500Medium',
+        paddingHorizontal: 20,
+        paddingVertical: 5,
+        backgroundColor: 'red',
+        borderRadius: 10,
+    },
+    openBtn: {
+        fontFamily: 'NotoSansJP_500Medium',
+        paddingHorizontal: 20,
+        paddingVertical: 5,
+        backgroundColor: '#2196f3',
+        borderRadius: 10,
+
     }
 });

@@ -45,7 +45,7 @@ export default function Settings({navigation}) {
   };
   return (
     <SafeAreaView style={theme.container}>
-      <View style={styles.container}>
+      <View>
         <SectionList
           sections={DATA}
           keyExtractor={(item, index) => item + index}
@@ -70,11 +70,8 @@ export default function Settings({navigation}) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      paddingTop: 10
-    },
     item: {
-      paddingVertical: 10,
+      paddingVertical: 3,
       paddingLeft: 10,
       borderBottomWidth: 1,
       borderColor: "#a3a3a3", 
@@ -82,7 +79,8 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between'
     },
     logo: {
-      marginRight: 20
+      marginRight: 20,
+      paddingTop: 10,
     },
 
 });

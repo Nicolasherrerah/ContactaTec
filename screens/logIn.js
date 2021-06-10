@@ -31,7 +31,7 @@ export default function LogIn({navigation}) {
           />
           <TextInput style={styles.input} placeholder='Usuario'/>
           <TextInput style={styles.input} placeholder='Constraseña'/>
-          <Pressable style={styles.buttonContainer} onPress={() => navigation.navigate('Main')} style={styles.buttonContainer}>
+          <Pressable style={styles.buttonContainer} onPress={() => navigation.navigate('Main')}>
             <Text style={styles.Btn}>
               INGRESAR
             </Text>
@@ -65,14 +65,13 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     margin: 10,
-    backgroundColor: '#a3a3a3',
     borderRadius: 10,
     backgroundColor: '#2196f3'
   },
   Btn: {
     fontFamily: 'NotoSansJP_500Medium',
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingVertical: 5,
     color: 'white',
 
   },
@@ -80,7 +79,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     borderColor: '#a3a3a3',
-    padding: 8,
+    paddingTop: 10,
+    paddingLeft: 5,
     margin: 15,
     width: 200,
     fontFamily: 'NotoSansJP_300Light',
@@ -93,13 +93,13 @@ const styles = StyleSheet.create({
     fontFamily: 'NotoSansJP_400Regular',
   },
   copyright: {
-    marginTop: 100,
+    marginTop: 50,
     fontFamily: 'NotoSansJP_900Black',
   }, 
   logoTec: {
     width: 200,
     height: 52,
-    marginBottom: 40,
+    marginVertical: 40,
   },
   logoApp: {
     width: 110,

@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import { Text, View, StyleSheet, StatusBar, Pressable, ScrollView } from 'react-native';
+import { Text, View, Modal, Pressable, ScrollView, TextInput } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { ThemeContext } from '../context/ThemeContext'
 import { globalStylesDark } from '../styles/globalDark'
@@ -41,14 +41,43 @@ Veltins Arena, hogar del Football Club Schalke 04, así como uno de los estadios
 ]
 
 export default function Home({ navigation }) {
+  const [modalVisible, setModalVisible] = useState(false);
   const context = useContext(ThemeContext);
   const theme = context.theme.isLight ? globalStylesLight : globalStylesDark;
-  const statusColor = context.theme.isLight ? '#4285f4' : '#000';
   const iconColor = context.theme.isLight ? '#000':  '#fff';
 
   return (
     <ScrollView>
     <View style={theme.container}>
+      <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert("Modal has been closed.");
+            setModalVisible(!modalVisible);
+          }}
+        >
+        <View style={theme.modal}>
+          <Text style={theme.title}>Nuevo foro privado</Text>
+          <View style={{flexDirection: 'row', justifyContent: 'flex-start', paddingVertical: 5}}>
+            <Text style={theme.text}>Titulo: </Text>
+            <TextInput placeholder='Tu foro'/>
+          </View>
+          <View style={{flexDirection: 'row', justifyContent: 'flex-start', paddingVertical: 10}}>
+            <Text style={theme.text}>Descripción: </Text>
+            <TextInput placeholder='Describe tu foro' multiline={true}/>
+          </View>
+          <View style={{flexDirection: 'row', justifyContent:'space-evenly', marginTop: 20}}>
+            <Pressable style={theme.closeBtn} onPress={() => setModalVisible(!modalVisible)}>
+              <Text style={globalStylesDark.text}>Cancelar</Text>
+            </Pressable>
+            <Pressable style={theme.openBtn} onPress={() => setModalVisible(!modalVisible)}>
+              <Text style={globalStylesDark.text}>Crear</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
       <View >
         <Header/>
           {
@@ -80,7 +109,9 @@ export default function Home({ navigation }) {
             ))
           }
           <View style={{alignItems: 'flex-end', marginTop:20, marginRight: 5}}>
-            <Ionicons name="add-circle" size={50} color={iconColor}/>
+            <Pressable onPress={() => setModalVisible(true)}>
+              <Ionicons name="add-circle" size={50} color={iconColor}/>
+            </Pressable>
           </View>
 
       </View>
